@@ -10,7 +10,10 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-        <title>JSP Page</title>
+        <title> EvenbriteFeka </title>
+        <link rel="icon" type="image/png" href="https://cdn.evbstatic.com/s3-build/perm_001/8a4e23/django/images/favicons/favicon-32x32.png" sizes="32x32">
+        <link rel="icon" type="image/png" href="https://cdn.evbstatic.com/s3-build/perm_001/477279/django/images/favicons/favicon-194x194.png" sizes="194x194">
+        
     </head>
     <body style="height: 100%" class="bg-dark">
         
@@ -40,7 +43,7 @@
         </nav>
         
         <div class="d-flex flex-wrap align-items-center justify-content-center" style="height: 100%">
-            <div style="width: 30%">
+            <div style="width: 20%">
                 <div class="input-group mb-3">
                     <input type="text" class="form-control" placeholder="Correo" aria-label="Recipient's username" aria-describedby="basic-addon2">
                     <span class="input-group-text" id="basic-addon2">@example.com</span>
@@ -57,8 +60,8 @@
                 </div>
                 
                 <center>
-                    <button class="btn btn-primary m-3"> Iniciar sesión </button>
-                    <button class="btn btn-danger m-3"> Registrarse </button>
+                    <button class="btn btn-primary m-3" style="color: #fff; background-color: #3291ea;"> Iniciar sesión </button>
+                    <button class="btn btn-danger m-3" style="color: #fff; background-color: #569678;"> Registrarse </button>
                 </center>
             </div>
         </div>
