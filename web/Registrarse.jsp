@@ -17,7 +17,7 @@
     </head>
     
     <%
-        boolean registroCompletado = false; //
+        boolean registroCompletado = true; //
     %>
     
     <body style="height: 100%">
