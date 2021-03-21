@@ -27,30 +27,30 @@
         
         <form action="ServletRegistrarse" method="POST" class="d-flex flex-column flex-wrap align-items-center justify-content-center" style="height: 100%">
             
-            <input type="text" class="form-control size" placeholder="Nombre">
+            <input type="text" name="nombre" class="form-control size" placeholder="Nombre">
 
-            <input type="text" class="form-control size" placeholder="Primer apellido">
+            <input type="text" name="primerApellido" class="form-control size" placeholder="Primer apellido">
 
-            <input type="text" class="form-control size" placeholder="Segundo apellido">
+            <input type="text" name="segundoApellido" class="form-control size" placeholder="Segundo apellido">
 
-            <input type="text" class="form-control size" placeholder="Domicilio">
+            <input type="text" name="domicilio" class="form-control size" placeholder="Domicilio">
 
-            <input type="text" class="form-control size" placeholder="Ciudad de residencia">
+            <input type="text" name="ciudad" class="form-control size" placeholder="Ciudad de residencia">
 
-            <input type="number" class="form-control size" placeholder="Edad">
+            <input type="number" name="edad" class="form-control size" placeholder="Edad">
 
-            <select class="form-select size" aria-label="Default select example">
+            <select nmae="sexo" class="form-select size" aria-label="Default select example">
                 <option selected>Elige tu sexo</option>
                 <option value="1">Hombre</option>
                 <option value="2">Mujer</option>
                 <option value="3">No binario</option>
             </select>
             
-            <input type="email" class="form-control size" placeholder="Correo">
+            <input type="email" name="correo" class="form-control size" placeholder="Correo">
 
-            <input type="password" class="form-control size" placeholder="Contraseña">
+            <input type="password" name="password" class="form-control size" placeholder="Contraseña">
             
-            <input type="password" class="form-control size" placeholder="Confirmar contraseña">
+            <input type="password" name="confPassword" class="form-control size" placeholder="Confirmar contraseña">
             
             <input class="btn btn-primary" type="submit">
             

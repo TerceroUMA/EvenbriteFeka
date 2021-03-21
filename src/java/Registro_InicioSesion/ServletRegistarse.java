@@ -7,6 +7,7 @@ package Registro_InicioSesion;
  */
 
 import java.io.IOException;
+import java.util.Enumeration;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -28,7 +29,7 @@ public class ServletRegistarse extends HttpServlet {
         
         HttpSession session = req.getSession();
         
-        
+        Enumeration<String> parametros = req.getParameterNames();
         String registradoConExito = (String) session.getAttribute("registradoConExito");
         if (registradoConExito == null) { //Todavia no se ha creado ninguno
             session.setAttribute("registradoConExito", "false");
