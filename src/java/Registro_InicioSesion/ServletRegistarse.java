@@ -7,7 +7,6 @@ package Registro_InicioSesion;
  */
 
 import java.io.IOException;
-import java.util.Enumeration;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

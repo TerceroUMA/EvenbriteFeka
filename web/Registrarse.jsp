@@ -20,11 +20,10 @@
         boolean registroCompletado = false;
         String mensaje = "";
         mensaje = (String) session.getAttribute("mensajeRegistro");
-        if (mensaje != null) {
-            registroCompletado = mensaje.equals("Has sido registrado con éxito!!!");    
+        if (mensaje == null) {
             mensaje = "";
         }
-        String manolo = "";
+        registroCompletado = !mensaje.equals("");    
     %>
     
     <body style="height: 100%">
