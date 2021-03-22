@@ -6,7 +6,10 @@ package Registro_InicioSesion;
  * and open the template in the editor.
  */
 
+import Entity.Usuario;
+import dao.UsuarioFacade;
 import java.io.IOException;
+import javax.ejb.EJB;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -21,6 +24,9 @@ import javax.servlet.http.HttpSession;
  */
 @WebServlet(urlPatterns = {"/ServletRegistrarse"})
 public class ServletRegistarse extends HttpServlet {
+
+    @EJB
+    private UsuarioFacade usuarioFacade;
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse res)
@@ -38,10 +44,14 @@ public class ServletRegistarse extends HttpServlet {
         String confPassword = new String(req.getParameter("confPassword").getBytes("ISO-8859-1"), "UTF-8");
         
         String mensaje = "";
+        Usuario user = usuarioFacade.find(correo);
 
         if (!password.equals(confPassword)) {
             mensaje = "Las contraseñas no son iguales";
+        } else if (user != null) {
+            mensaje = "Este correo ya está en uso";
         } else {
+            Usuario nuevoUsuario = new Usuario(correo, nombre, password, primerApellido, segundoApellido, domicilio, ciudad, sexo, 3);
             mensaje = "Has sido registrado con éxito!!!";
         }
         
