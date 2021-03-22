@@ -26,16 +26,31 @@ public class ServletRegistarse extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse res)
             throws ServletException, IOException {
+                
+        String nombre = new String(req.getParameter("nombre").getBytes("ISO-8859-1"), "UTF-8");
+        String primerApellido = new String(req.getParameter("primerApellido").getBytes("ISO-8859-1"), "UTF-8");
+        String segundoApellido = new String(req.getParameter("segundoApellido").getBytes("ISO-8859-1"), "UTF-8");
+        String domicilio = new String(req.getParameter("domicilio").getBytes("ISO-8859-1"), "UTF-8");
+        String edad = new String(req.getParameter("edad").getBytes("ISO-8859-1"), "UTF-8");
+        String ciudad = new String(req.getParameter("ciudad").getBytes("ISO-8859-1"), "UTF-8");
+        String sexo = new String(req.getParameter("sexo").getBytes("ISO-8859-1"), "UTF-8");
+        String correo = new String(req.getParameter("correo").getBytes("ISO-8859-1"), "UTF-8");
+        String password = new String(req.getParameter("password").getBytes("ISO-8859-1"), "UTF-8");
+        String confPassword = new String(req.getParameter("confPassword").getBytes("ISO-8859-1"), "UTF-8");
         
-        HttpSession session = req.getSession();
-        
-        Enumeration<String> parametros = req.getParameterNames();
-        String registradoConExito = (String) session.getAttribute("registradoConExito");
-        if (registradoConExito == null) { //Todavia no se ha creado ninguno
-            session.setAttribute("registradoConExito", "false");
+        String mensaje = "";
+
+        if (!password.equals(confPassword)) {
+            mensaje = "Las contraseñas no son iguales";
+        } else {
+            mensaje = "Has sido registrado con éxito!!!";
         }
         
-        RequestDispatcher rd = req.getRequestDispatcher("IniciarSesion.jsp");
+        HttpSession session = req.getSession();
+        session.setAttribute("mensajeRegistro", mensaje);
+        
+        RequestDispatcher rd;
+        rd = req.getRequestDispatcher("Registrarse.jsp");
         rd.forward(req, res);
     }
 

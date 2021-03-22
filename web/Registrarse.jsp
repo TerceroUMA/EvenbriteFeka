@@ -17,12 +17,19 @@
     </head>
     
     <%
-        boolean registroCompletado = true; //
+        boolean registroCompletado = false;
+        String mensaje = "";
+        mensaje = (String) session.getAttribute("mensajeRegistro");
+        if (mensaje != null) {
+            registroCompletado = mensaje.equals("Has sido registrado con éxito!!!");    
+            mensaje = "";
+        }
+        String manolo = "";
     %>
     
     <body style="height: 100%">
         <center>
-            <h1 class="<%= registroCompletado ? "title" : "hidden title" %>"> Has sido registrado con éxito </h1>
+            <h1 class="<%= registroCompletado ? "title" : "hidden title" %>"> <%= mensaje %> </h1>
         </center>
         
         <form action="ServletRegistrarse" method="POST" class="d-flex flex-column flex-wrap align-items-center justify-content-center" style="height: 100%">
@@ -39,11 +46,11 @@
 
             <input type="number" name="edad" class="form-control size" placeholder="Edad">
 
-            <select nmae="sexo" class="form-select size" aria-label="Default select example">
+            <select name="sexo" class="form-select size" aria-label="Default select example">
                 <option selected>Elige tu sexo</option>
-                <option value="1">Hombre</option>
-                <option value="2">Mujer</option>
-                <option value="3">No binario</option>
+                <option value="hombre">Hombre</option>
+                <option value="mujer">Mujer</option>
+                <option value="otro">Otro</option>
             </select>
             
             <input type="email" name="correo" class="form-control size" placeholder="Correo">
