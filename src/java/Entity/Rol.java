@@ -8,7 +8,6 @@ package Entity;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -30,50 +29,43 @@ import javax.xml.bind.annotation.XmlTransient;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Rol.findAll", query = "SELECT r FROM Rol r")
-    , @NamedQuery(name = "Rol.findById", query = "SELECT r FROM Rol r WHERE r.id = :id")
-    , @NamedQuery(name = "Rol.findByTipo", query = "SELECT r FROM Rol r WHERE r.tipo = :tipo")})
+    , @NamedQuery(name = "Rol.findByIdrol", query = "SELECT r FROM Rol r WHERE r.idrol = :idrol")
+    , @NamedQuery(name = "Rol.findByNombre", query = "SELECT r FROM Rol r WHERE r.nombre = :nombre")})
 public class Rol implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
     @NotNull
-    @Column(name = "ID")
-    private Integer id;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 50)
-    @Column(name = "TIPO")
-    private String tipo;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idRol")
+    @Column(name = "IDROL")
+    private Integer idrol;
+    @Size(max = 55)
+    @Column(name = "NOMBRE")
+    private String nombre;
+    @OneToMany(mappedBy = "idrol")
     private List<Usuario> usuarioList;
 
     public Rol() {
     }
 
-    public Rol(Integer id) {
-        this.id = id;
+    public Rol(Integer idrol) {
+        this.idrol = idrol;
     }
 
-    public Rol(Integer id, String tipo) {
-        this.id = id;
-        this.tipo = tipo;
+    public Integer getIdrol() {
+        return idrol;
     }
 
-    public Integer getId() {
-        return id;
+    public void setIdrol(Integer idrol) {
+        this.idrol = idrol;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public String getNombre() {
+        return nombre;
     }
 
-    public String getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     @XmlTransient
@@ -88,7 +80,7 @@ public class Rol implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
+        hash += (idrol != null ? idrol.hashCode() : 0);
         return hash;
     }
 
@@ -99,7 +91,7 @@ public class Rol implements Serializable {
             return false;
         }
         Rol other = (Rol) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+        if ((this.idrol == null && other.idrol != null) || (this.idrol != null && !this.idrol.equals(other.idrol))) {
             return false;
         }
         return true;
@@ -107,7 +99,7 @@ public class Rol implements Serializable {
 
     @Override
     public String toString() {
-        return "Entity.Rol[ id=" + id + " ]";
+        return "Entity.Rol[ idrol=" + idrol + " ]";
     }
     
 }

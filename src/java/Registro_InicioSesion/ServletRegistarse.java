@@ -44,15 +44,16 @@ public class ServletRegistarse extends HttpServlet {
         String confPassword = new String(req.getParameter("confPassword").getBytes("ISO-8859-1"), "UTF-8");
         
         String mensaje = "";
-        Usuario user = usuarioFacade.find(correo);
+        //Usuario user = usuarioFacade.find(correo);
+        Usuario usuario = usuarioFacade.findAll().stream().filter(x -> x.getEmail().equals(correo)).findAny().get();
 
         if (!password.equals(confPassword)) {
             mensaje = "Las contraseñas no son iguales";
-        } else if (user != null) {
+       // } else if (user != null) {
             mensaje = "Este correo ya está en uso";
         } else {
-            Usuario nuevoUsuario = new Usuario(correo, nombre, password, primerApellido, segundoApellido, domicilio, ciudad, sexo, 3);
-            mensaje = "Has sido registrado con éxito!!!";
+            //Usuario nuevoUsuario = new Usuario(correo, nombre, password, primerApellido, segundoApellido, domicilio, ciudad, sexo, 3);
+            //mensaje = "Has sido registrado con éxito!!!";
         }
         
         HttpSession session = req.getSession();
